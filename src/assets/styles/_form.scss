@@ -1,0 +1,23 @@
+.form {
+  &-input:focus ~ &-label,
+  &-input:not(:focus):valid ~ &-label {
+    @apply text-gray-50 bg-gray-800 px-2 top-0 left-2.5 text-sm;
+  }
+  &-group {
+    @apply relative my-7;
+  }
+  &-label {
+    @apply absolute top-2/4 left-4 transform tracking-wide
+    -translate-y-2/4 text-gray-600 cursor-text text-base transition-all duration-200;
+  }
+  &-input {
+    @apply w-72 h-12 relative text-base bg-transparent text-gray-50
+    border border-gray-50 px-4 focus:outline-none;
+    &::placeholder {
+      @apply font-semibold text-gray-700;
+    }
+    &:focus ~ &::placeholder {
+      @apply absolute top-0 left-0;
+    }
+  }
+}
