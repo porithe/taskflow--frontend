@@ -24,6 +24,6 @@ html {
 #app {
   width: 100%;
   height: 100%;
-  @apply bg-gray-800;
+  @apply flex flex-col bg-gray-800;
 }
 </style>
