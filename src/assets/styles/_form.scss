@@ -1,14 +1,15 @@
 .form {
+  @apply flex flex-col;
   &-input:focus ~ &-label,
   &-input:not(:focus):valid ~ &-label {
-    @apply text-gray-50 bg-gray-800 px-2 top-0 left-2.5 text-sm;
+    @apply text-gray-50 bg-gray-800 px-2 -top-2.5 left-2.5 text-sm;
   }
   &-group {
-    @apply relative my-7;
+    @apply relative mb-7 flex flex-col;
   }
   &-label {
-    @apply absolute top-2/4 left-4 transform tracking-wide
-    -translate-y-2/4 text-gray-600 cursor-text text-base transition-all duration-200;
+    @apply absolute top-3 left-4 tracking-wide
+    text-gray-600 cursor-text text-base transition-all duration-200;
   }
   &-input {
     @apply w-72 h-12 relative text-base bg-transparent text-gray-50
@@ -19,5 +20,11 @@
     &:focus ~ &::placeholder {
       @apply absolute top-0 left-0;
     }
+  }
+  &-error {
+    @apply text-red-500 text-sm font-medium text-right pt-1;
+  }
+  &-submit {
+    @apply ml-auto py-2.5 px-6 bg-yellow-400 text-base focus:outline-none;
   }
 }

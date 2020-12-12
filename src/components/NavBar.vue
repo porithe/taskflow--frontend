@@ -12,6 +12,7 @@
         <router-link
           :to="name"
           class="p-3 border-b-2 border-transparent hover:border-yellow-400 transition duration-200"
+          :class="{ 'border-yellow-400': isCurrentRoute(name) }"
         >
           {{ name }}
         </router-link>
@@ -21,19 +22,27 @@
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
+import { useRoute } from "vue-router";
+import Routes from "@/constants/routes";
+
 export default defineComponent({
   name: "NavBar",
   setup() {
     const routes = [
       {
-        name: "register"
+        name: Routes.REGISTER
       },
       {
-        name: "login"
+        name: Routes.LOGIN
       }
     ];
+    const route = useRoute();
+    const isCurrentRoute = (name: string) => {
+      return name === route.name;
+    };
     return {
-      routes
+      routes,
+      isCurrentRoute
     };
   }
 });
