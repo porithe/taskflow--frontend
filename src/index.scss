@@ -5,6 +5,9 @@
 .Vue-Toastification {
   &__toast {
     border-radius: 0 !important;
+    &-body {
+      font-family: "Quicksand" !important;
+    }
     &--success {
       background-color: #059669 !important;
     }
