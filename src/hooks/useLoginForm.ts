@@ -1,7 +1,7 @@
 import { reactive } from "vue";
 import * as Yup from "yup";
 
-export const useLoginForm = () => {
+const useLoginForm = () => {
   const form = reactive({
     username: "",
     password: ""
@@ -28,3 +28,5 @@ export const useLoginForm = () => {
   });
   return { form, formSettings, schema };
 };
+
+export default useLoginForm;

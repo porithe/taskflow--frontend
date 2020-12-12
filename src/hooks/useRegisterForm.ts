@@ -1,7 +1,7 @@
 import { reactive } from "vue";
 import * as Yup from "yup";
 
-export const useRegisterForm = () => {
+const useRegisterForm = () => {
   const form = reactive({
     username: "",
     firstName: "",
@@ -51,3 +51,5 @@ export const useRegisterForm = () => {
   });
   return { form, formSettings, schema };
 };
+
+export default useRegisterForm;

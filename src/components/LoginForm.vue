@@ -29,13 +29,14 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { Form, Field } from "vee-validate";
-import { useLoginForm } from "@/hooks/useLoginForm";
+import useLoginForm from "@/hooks/useLoginForm";
 import { FormData } from "@/constants/login";
 import { useToast } from "vue-toastification";
 import authApi from "@/api/auth";
 import ToastMessages from "@/constants/toastMessages";
 import { useRouter } from "vue-router";
 import Routes from "@/constants/routes";
+import { useStore } from "vuex";
 
 export default defineComponent({
   name: "LoginForm",
@@ -44,10 +45,14 @@ export default defineComponent({
     const { form, formSettings, schema } = useLoginForm();
     const toast = useToast();
     const router = useRouter();
+    const store = useStore();
     const login = async ({ username, password }: FormData) => {
       try {
         const { data } = await authApi.login({ username, password });
-        console.log(data);
+        store.commit("authStore/SET_TOKEN", data.accessToken);
+        await router.push({
+          name: Routes.PROFILE
+        });
       } catch ({ response }) {
         if (response.status === 401) {
           toast.error(ToastMessages.UNAUTHORIZED);

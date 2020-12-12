@@ -29,7 +29,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { Form, Field } from "vee-validate";
-import { useRegisterForm } from "@/hooks/useRegisterForm";
+import useRegisterForm from "@/hooks/useRegisterForm";
 import { FormData } from "@/constants/register";
 import { useToast } from "vue-toastification";
 import authApi from "@/api/auth";
