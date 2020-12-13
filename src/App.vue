@@ -1,13 +1,23 @@
 <template>
-  <NavBar />
-  <router-view />
+  <div class="flex h-full" :class="{ 'flex-col': !isUserLogged }">
+    <NavBar v-if="!isUserLogged" />
+    <SideBar v-else />
+    <router-view />
+  </div>
 </template>
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, computed } from "vue";
 import NavBar from "@/components/NavBar.vue";
+import SideBar from "@/components/SideBar.vue";
+import { useStore } from "vuex";
 export default defineComponent({
   name: "App",
-  components: { NavBar }
+  components: { NavBar, SideBar },
+  setup() {
+    const store = useStore();
+    const isUserLogged = computed(() => store.getters["authStore/token"]);
+    return { isUserLogged };
+  }
 });
 </script>
 <style lang="scss">

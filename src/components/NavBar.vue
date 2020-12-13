@@ -1,8 +1,11 @@
 <template>
   <nav class="h-28 pl-6 pr-3 flex items-center">
-    <span class="text-3xl tracking-wide font-bold text-yellow-400">
+    <router-link
+      class="text-3xl tracking-wide font-bold text-yellow-400"
+      to="/"
+    >
       taskflow
-    </span>
+    </router-link>
     <ul class="ml-auto flex">
       <li
         v-for="{ name } in routes"
