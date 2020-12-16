@@ -29,7 +29,7 @@ const routes: Array<RouteRecordRaw> = [
     component: Profile
   },
   {
-    path: "/dashboard/:uuid",
+    path: "/dashboard",
     name: Routes.DASHBOARD,
     component: Dashboard
   }
