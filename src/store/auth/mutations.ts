@@ -1,10 +1,11 @@
 import { State } from "@/store/auth/module";
+import AuthMutations from "@/constants/authMutations";
 
 export default {
-  SET_TOKEN(state: State, token: string) {
+  [AuthMutations.SET_TOKEN](state: State, token: string) {
     state.token = token;
   },
-  REMOVE_TOKEN(state: State) {
+  [AuthMutations.REMOVE_TOKEN](state: State) {
     state.token = "";
   }
 };

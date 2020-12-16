@@ -10,12 +10,15 @@ import { defineComponent, computed } from "vue";
 import NavBar from "@/components/NavBar.vue";
 import SideBar from "@/components/SideBar.vue";
 import { useStore } from "vuex";
+import AuthGetters from "@/constants/authGetters";
 export default defineComponent({
   name: "App",
   components: { NavBar, SideBar },
   setup() {
     const store = useStore();
-    const isUserLogged = computed(() => store.getters["authStore/token"]);
+    const isUserLogged = computed(
+      () => store.getters[`authStore/${AuthGetters.TOKEN}`]
+    );
     return { isUserLogged };
   }
 });

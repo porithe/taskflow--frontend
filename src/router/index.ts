@@ -6,6 +6,7 @@ import Login from "@/views/Login.vue";
 import Dashboard from "@/views/Dashboard.vue";
 import store from "@/store";
 import Profile from "@/views/Profile.vue";
+import AuthGetters from "@/constants/authGetters";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -41,7 +42,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const token = store.getters["authStore/token"];
+  const token = store.getters[`authStore/${AuthGetters.TOKEN}`];
   if (
     to.name !== Routes.REGISTER &&
     to.name !== Routes.LOGIN &&

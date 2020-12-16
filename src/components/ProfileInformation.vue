@@ -22,6 +22,7 @@ import IconLogout from "@/assets/svg/IconLogout.vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 import Routes from "@/constants/routes";
+import AuthMutations from "@/constants/authMutations";
 export default defineComponent({
   name: "ProfileInformation",
   components: { IconLogout },
@@ -41,7 +42,7 @@ export default defineComponent({
       ).toUpperCase();
     };
     const logout = () => {
-      store.commit("authStore/REMOVE_TOKEN");
+      store.commit(`authStore/${AuthMutations.REMOVE_TOKEN}`);
       router.push({
         name: Routes.HOME
       });

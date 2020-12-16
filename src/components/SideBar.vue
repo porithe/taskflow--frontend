@@ -39,18 +39,19 @@ import IconProfile from "@/assets/svg/IconProfile.vue";
 import IconDashboard from "@/assets/svg/IconDashboard.vue";
 import { useRoute } from "vue-router";
 import Routes from "@/constants/routes";
+import AuthGetters from "@/constants/authGetters";
 export default defineComponent({
   name: "SideBar",
   components: { ProfileInformation, IconProfile, IconDashboard },
   setup() {
     const routes = [
       {
-        name: Routes.DASHBOARD,
-        icon: "IconDashboard"
-      },
-      {
         name: Routes.PROFILE,
         icon: "IconProfile"
+      },
+      {
+        name: Routes.DASHBOARD,
+        icon: "IconDashboard"
       }
     ];
     const profileData = reactive({
@@ -63,7 +64,7 @@ export default defineComponent({
     const isCurrentRoute = (name: string): boolean => {
       return route.name === name;
     };
-    const token = store.getters["authStore/token"];
+    const token = store.getters[`authStore/${AuthGetters.TOKEN}`];
     const getUserProfile = async () => {
       const { data } = await userApi.profile(token);
       profileData.firstName = data.firstName;

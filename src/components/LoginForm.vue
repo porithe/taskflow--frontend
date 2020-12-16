@@ -37,6 +37,7 @@ import ToastMessages from "@/constants/toastMessages";
 import { useRouter } from "vue-router";
 import Routes from "@/constants/routes";
 import { useStore } from "vuex";
+import AuthActions from "@/constants/authActions";
 
 export default defineComponent({
   name: "LoginForm",
@@ -49,7 +50,10 @@ export default defineComponent({
     const login = async ({ username, password }: FormData) => {
       try {
         const { data } = await authApi.login({ username, password });
-        store.commit("authStore/SET_TOKEN", data.accessToken);
+        await store.dispatch(
+          `authStore/${AuthActions.LOGIN}`,
+          data.accessToken
+        );
         await router.push({
           name: Routes.PROFILE
         });
