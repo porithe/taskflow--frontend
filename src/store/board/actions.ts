@@ -1,5 +1,5 @@
 import boardApi from "@/api/board";
-import BoardMutations from "@/constants/boardMutations";
+import { BoardMutations } from "@/constants/board";
 
 export default {
   async [BoardMutations.ADD_BOARD]({ commit, rootState }: any) {

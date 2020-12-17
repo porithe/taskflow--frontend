@@ -1,5 +1,5 @@
 import { State } from "@/store/auth/module";
-import AuthMutations from "@/constants/authMutations";
+import { AuthMutations } from "@/constants/auth";
 
 export default {
   [AuthMutations.SET_TOKEN](state: State, token: string) {

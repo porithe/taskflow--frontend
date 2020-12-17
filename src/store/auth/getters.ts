@@ -1,5 +1,5 @@
 import { State } from "@/store/auth/module";
-import AuthGetters from "@/constants/authGetters";
+import { AuthGetters } from "@/constants/auth";
 
 export default {
   [AuthGetters.TOKEN](state: State) {

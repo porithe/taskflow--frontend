@@ -39,7 +39,8 @@ import IconProfile from "@/assets/svg/IconProfile.vue";
 import IconDashboard from "@/assets/svg/IconDashboard.vue";
 import { useRoute } from "vue-router";
 import Routes from "@/constants/routes";
-import AuthGetters from "@/constants/authGetters";
+import { AuthGetters } from "@/constants/auth";
+
 export default defineComponent({
   name: "SideBar",
   components: { ProfileInformation, IconProfile, IconDashboard },

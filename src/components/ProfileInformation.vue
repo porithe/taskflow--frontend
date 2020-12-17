@@ -22,7 +22,8 @@ import IconLogout from "@/assets/svg/IconLogout.vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
 import Routes from "@/constants/routes";
-import AuthMutations from "@/constants/authMutations";
+import { AuthMutations } from "@/constants/auth";
+
 export default defineComponent({
   name: "ProfileInformation",
   components: { IconLogout },

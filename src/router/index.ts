@@ -6,7 +6,7 @@ import Login from "@/views/Login.vue";
 import Dashboard from "@/views/Dashboard.vue";
 import store from "@/store";
 import Profile from "@/views/Profile.vue";
-import AuthGetters from "@/constants/authGetters";
+import { AuthGetters } from "@/constants/auth";
 
 const routes: Array<RouteRecordRaw> = [
   {

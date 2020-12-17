@@ -37,7 +37,7 @@ import ToastMessages from "@/constants/toastMessages";
 import { useRouter } from "vue-router";
 import Routes from "@/constants/routes";
 import { useStore } from "vuex";
-import AuthActions from "@/constants/authActions";
+import { AuthActions } from "@/constants/auth";
 
 export default defineComponent({
   name: "LoginForm",

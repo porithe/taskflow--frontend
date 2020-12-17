@@ -1,5 +1,5 @@
-import AuthActions from "@/constants/authActions";
-import AuthMutations from "@/constants/authMutations";
+import { AuthActions } from "@/constants/auth";
+import { AuthMutations } from "@/constants/auth";
 import { ActionContext } from "vuex";
 import { State } from "@/store/auth/module";
 

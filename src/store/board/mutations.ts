@@ -1,6 +1,6 @@
 import { State } from "@/store/board/module";
 import { Board } from "@/constants/board";
-import BoardMutations from "@/constants/boardMutations";
+import { BoardMutations } from "@/constants/board";
 
 export default {
   [BoardMutations.ADD_BOARD](state: State, board: Board) {

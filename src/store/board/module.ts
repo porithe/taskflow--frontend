@@ -1,5 +1,5 @@
 import mutations from "./mutations";
-// import getters from "./getters";
+import getters from "./getters";
 import actions from "./actions";
 import { Board } from "@/constants/board";
 
@@ -15,7 +15,7 @@ const authStore = {
   namespaced: true,
   state,
   mutations,
-  // getters,
+  getters,
   actions
 };
 
