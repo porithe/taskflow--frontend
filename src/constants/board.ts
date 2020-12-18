@@ -8,7 +8,8 @@ export enum BoardGetters {
 }
 
 export enum BoardActions {
-  ADD_BOARD = "ADD_BOARD"
+  ADD_BOARD = "ADD_BOARD",
+  GET_BOARD_LIST = "GET_BOARD_LIST"
 }
 
 export enum BoardMutations {
