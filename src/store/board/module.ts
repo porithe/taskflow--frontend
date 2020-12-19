@@ -2,13 +2,24 @@ import mutations from "./mutations";
 import getters from "./getters";
 import actions from "./actions";
 import { Board } from "@/constants/board";
+import { Column } from "@/constants/column";
 
 export interface State {
   boardList: Board[];
+  board: {
+    name: string;
+    uuid: string;
+    columns: Column[] | null;
+  };
 }
 
 const state: State = {
-  boardList: []
+  boardList: [],
+  board: {
+    name: "",
+    uuid: "",
+    columns: []
+  }
 };
 
 const authStore = {

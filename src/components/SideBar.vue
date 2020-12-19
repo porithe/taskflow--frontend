@@ -1,5 +1,5 @@
 <template>
-  <div class="w-96 h-full bg-gray-900 p-8 flex flex-col">
+  <div class="h-full bg-gray-900 p-8 flex flex-col">
     <span class="text-3xl tracking-wide font-bold text-yellow-400">
       taskflow
     </span>
@@ -8,14 +8,14 @@
     >
       GENERAL
     </span>
-    <ul class="mt-5">
+    <ul class="mt-5 w-80">
       <li
         v-for="{ name, icon } in routes"
         class="text-xl font-medium text-gray-500 mb-5 capitalize"
         :key="name"
       >
         <router-link
-          :to="name"
+          :to="{ name }"
           class="flex items-center"
           :class="{ 'text-gray-50': isCurrentRoute(name) }"
         >
