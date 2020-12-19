@@ -7,6 +7,7 @@ import Dashboard from "@/views/Dashboard.vue";
 import store from "@/store";
 import Profile from "@/views/Profile.vue";
 import { AuthGetters } from "@/constants/auth";
+import Board from "@/views/Board.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -33,6 +34,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/dashboard",
     name: Routes.DASHBOARD,
     component: Dashboard
+  },
+  {
+    path: "/board/:uuid",
+    name: Routes.BOARD,
+    component: Board
   }
 ];
 

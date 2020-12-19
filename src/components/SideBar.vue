@@ -8,10 +8,10 @@
     >
       GENERAL
     </span>
-    <ul class="mt-4">
+    <ul class="mt-5">
       <li
         v-for="{ name, icon } in routes"
-        class="text-xl font-medium text-gray-300 mb-5 capitalize"
+        class="text-xl font-medium text-gray-500 mb-5 capitalize"
         :key="name"
       >
         <router-link
@@ -21,7 +21,7 @@
         >
           <component
             :is="icon"
-            :color="isCurrentRoute(name) ? '#F9FAFB' : '#B9B9B9'"
+            :color="isCurrentRoute(name) ? '#F9FAFB' : '#6B7280'"
           />
           <span class="ml-5">{{ name }}</span>
         </router-link>

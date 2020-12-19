@@ -1,6 +1,6 @@
 <template>
   <button
-    class="bg-yellow-400 mt-24 px-12 py-4 text-xl tracking-wide font-medium"
+    class="bg-yellow-400 px-12 py-4 text-xl tracking-wide font-medium absolute top-8 right-8"
     @click="addBoard"
   >
     create board

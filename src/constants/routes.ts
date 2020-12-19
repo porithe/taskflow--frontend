@@ -3,7 +3,8 @@ enum Routes {
   REGISTER = "register",
   LOGIN = "login",
   PROFILE = "profile",
-  DASHBOARD = "dashboard"
+  DASHBOARD = "dashboard",
+  BOARD = "board"
 }
 
 export default Routes;

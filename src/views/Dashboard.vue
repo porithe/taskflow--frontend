@@ -1,5 +1,8 @@
 <template>
-  <div class="flex flex-col items-center justify-center flex-grow">
+  <div
+    class="flex flex-col items-start justify-start flex-grow relative"
+    :class="{ 'items-center justify-center': !boardList.length }"
+  >
     <Spinner v-if="isLoading" />
     <template v-else>
       <BoardList v-if="!!boardList.length" :board-list="boardList" />
