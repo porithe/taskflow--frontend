@@ -1,0 +1,21 @@
+<template>
+  <li class="w-96 bg-gray-700 h-32 shadow-xl py-2 px-3 relative">
+    <p class="text-gray-300 text-lg font-medium">learn vue 3</p>
+    <p
+      class="text-gray-400 text-base overflow-ellipsis whitespace-nowrap overflow-hidden"
+    >
+      asdjfn aijsdnf jiasndfijasasidjfn aisjdnf a jasndfij asnjd
+    </p>
+    <button class="absolute bottom-0.5 right-3">
+      <IconDots />
+    </button>
+  </li>
+</template>
+<script lang="ts">
+import { defineComponent } from "vue";
+import IconDots from "@/assets/svg/IconDots.vue";
+export default defineComponent({
+  name: "Task",
+  components: { IconDots }
+});
+</script>

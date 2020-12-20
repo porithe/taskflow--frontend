@@ -1,9 +1,9 @@
 <template>
-  <div class="mr-3 overflow-x-auto flex flex-grow whitespace-nowrap">
+  <ul class="mr-3 overflow-x-auto flex flex-grow whitespace-nowrap">
     <Column />
     <Column />
     <Column />
-  </div>
+  </ul>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
