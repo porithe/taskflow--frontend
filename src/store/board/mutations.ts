@@ -8,5 +8,8 @@ export default {
   },
   [BoardMutations.SET_BOARD_LIST](state: State, boardList: Board[]) {
     state.boardList = boardList;
+  },
+  [BoardMutations.SET_BOARD_NAME](state: State, name: string) {
+    state.board.name = name;
   }
 };

@@ -17,5 +17,29 @@ export default {
   }: ActionContext<State, any>) {
     const { data } = await boardApi.getBoardList(rootState.authStore.token);
     commit(BoardMutations.SET_BOARD_LIST, data);
+  },
+  [BoardActions.SET_BOARD_NAME]({ commit }: any, name: string) {
+    commit(BoardMutations.SET_BOARD_NAME, name);
+  },
+  async [BoardActions.GET_BOARD_INFO](
+    { commit, rootState }: ActionContext<State, any>,
+    boardUuid: string
+  ) {
+    const { data } = await boardApi.getBoard(
+      rootState.authStore.token,
+      boardUuid
+    );
+    commit(BoardMutations.SET_BOARD_NAME, data.name);
+  },
+  async [BoardActions.EDIT_BOARD_NAME](
+    { commit, rootState }: ActionContext<State, any>,
+    { boardUuid, name }: any
+  ) {
+    const { data } = await boardApi.editBoardName(
+      boardUuid,
+      name,
+      rootState.authStore.token
+    );
+    commit(BoardMutations.SET_BOARD_NAME, data.name);
   }
 };

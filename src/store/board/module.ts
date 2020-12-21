@@ -8,7 +8,6 @@ export interface State {
   boardList: Board[];
   board: {
     name: string;
-    uuid: string;
     columns: Column[] | null;
   };
 }
@@ -17,7 +16,6 @@ const state: State = {
   boardList: [],
   board: {
     name: "",
-    uuid: "",
     columns: []
   }
 };
