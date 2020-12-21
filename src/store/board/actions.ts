@@ -1,5 +1,5 @@
 import boardApi from "@/api/board";
-import { BoardActions, BoardMutations } from "@/constants/board";
+import { BoardActions, BoardMutations, EditBoard } from "@/constants/board";
 import { ActionContext } from "vuex";
 import { State } from "@/store/board/module";
 
@@ -33,7 +33,7 @@ export default {
   },
   async [BoardActions.EDIT_BOARD_NAME](
     { commit, rootState }: ActionContext<State, any>,
-    { boardUuid, name }: any
+    { boardUuid, name }: EditBoard
   ) {
     const { data } = await boardApi.editBoardName(
       boardUuid,

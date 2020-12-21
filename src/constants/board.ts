@@ -21,3 +21,8 @@ export enum BoardMutations {
   SET_BOARD_LIST = "SET_BOARD_LIST",
   SET_BOARD_NAME = "SET_BOARD_NAME"
 }
+
+export interface EditBoard {
+  boardUuid: string;
+  name: string;
+}

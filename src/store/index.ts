@@ -2,6 +2,7 @@ import { createStore } from "vuex";
 import createPersistedState from "vuex-persistedstate";
 import authStore from "@/store/auth/module";
 import boardStore from "@/store/board/module";
+import columnStore from "@/store/column/module";
 
 const authState = createPersistedState({
   paths: ["authStore"]
@@ -10,7 +11,8 @@ const authState = createPersistedState({
 export default createStore({
   modules: {
     authStore,
-    boardStore
+    boardStore,
+    columnStore
   },
   plugins: [authState]
 });

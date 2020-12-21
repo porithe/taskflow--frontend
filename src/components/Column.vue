@@ -1,12 +1,12 @@
 <template>
   <li class="mr-8 pb-10">
     <div class="flex w-96 h-14 items-center">
-      <p class="font-semibold text-gray-50 text-lg">Backlog</p>
+      <p class="font-semibold text-gray-50 text-lg">{{ columnData.name }}</p>
       <button class="ml-auto"><IconPlusSmall /></button>
       <button class="ml-2"><IconDots /></button>
     </div>
-    <NoTasks v-if="false" />
-    <ul>
+    <NoTasks v-if="!columnData.tasks.length" />
+    <ul v-else>
       <Task />
     </ul>
   </li>
@@ -19,6 +19,12 @@ import NoTasks from "@/components/NoTasks.vue";
 import Task from "@/components/Task.vue";
 export default defineComponent({
   name: "Column",
+  props: {
+    columnData: {
+      type: Object,
+      required: true
+    }
+  },
   components: { IconPlusSmall, IconDots, NoTasks, Task }
 });
 </script>
