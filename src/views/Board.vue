@@ -5,7 +5,7 @@
       <BoardName />
       <div class="flex mt-3 justify-between flex-1 overflow-x-auto">
         <ColumnList />
-        <button class="self-start">
+        <button class="self-start" @click="addColumn">
           <IconPlus />
         </button>
       </div>
@@ -57,11 +57,22 @@ export default defineComponent({
         isColumnListLoading.value = false;
       }
     };
+    const addColumn = async () => {
+      try {
+        await store.dispatch(
+          `columnStore/${ColumnActions.ADD_COLUMN}`,
+          route.params.uuid
+        );
+      } catch {
+        toast.error(ToastMessages.GLOBAL_ERROR);
+      }
+    };
     getBoardInfo();
     getColumnList();
     return {
       isBoardInfoLoading,
-      isColumnListLoading
+      isColumnListLoading,
+      addColumn
     };
   }
 });

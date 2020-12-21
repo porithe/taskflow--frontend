@@ -11,5 +11,19 @@ export default {
         }
       }
     );
+  },
+  addColumn(token: string, boardUuid: string) {
+    return axios.post(
+      `${process.env.VUE_APP_API}column/add`,
+      {
+        boardUuid,
+        name: "default column"
+      },
+      {
+        headers: {
+          Authorization: bearerToken(token)
+        }
+      }
+    );
   }
 };

@@ -13,5 +13,16 @@ export default {
       boardUuid
     );
     commit(ColumnMutations.SET_COLUMN_LIST, data);
+  },
+  async [ColumnActions.ADD_COLUMN](
+    { commit, rootState }: ActionContext<State, any>,
+    boardUuid: string
+  ) {
+    const { data } = await columnApi.addColumn(
+      rootState.authStore.token,
+      boardUuid
+    );
+    data.tasks = [];
+    commit(ColumnMutations.ADD_COLUMN, data);
   }
 };

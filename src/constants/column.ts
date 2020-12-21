@@ -12,7 +12,8 @@ export interface Column {
 }
 
 export enum ColumnMutations {
-  SET_COLUMN_LIST = "SET_COLUMN_LIST"
+  SET_COLUMN_LIST = "SET_COLUMN_LIST",
+  ADD_COLUMN = "ADD_COLUMN"
 }
 
 export enum ColumnGetters {
@@ -20,5 +21,6 @@ export enum ColumnGetters {
 }
 
 export enum ColumnActions {
-  GET_COLUMN_LIST = "GET_COLUMN_LIST"
+  GET_COLUMN_LIST = "GET_COLUMN_LIST",
+  ADD_COLUMN = "ADD_COLUMN"
 }
