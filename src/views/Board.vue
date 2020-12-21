@@ -13,60 +13,19 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent } from "vue";
 import IconPlus from "@/assets/svg/IconPlus.vue";
 import ColumnList from "@/components/ColumnList.vue";
 import BoardName from "@/components/BoardName.vue";
 import Spinner from "@/components/Spinner.vue";
-import { useRoute } from "vue-router";
-import ToastMessages from "@/constants/toastMessages";
-import { useToast } from "vue-toastification";
-import { useStore } from "vuex";
-import { BoardActions } from "@/constants/board";
-import { ColumnActions } from "@/constants/column";
+import useColumn from "@/hooks/useColumn";
+import useBoard from "@/hooks/useBoard";
 export default defineComponent({
   name: "Board",
   components: { IconPlus, ColumnList, BoardName, Spinner },
   setup() {
-    const isBoardInfoLoading = ref(true);
-    const isColumnListLoading = ref(true);
-    const route = useRoute();
-    const toast = useToast();
-    const store = useStore();
-    const getBoardInfo = async () => {
-      try {
-        await store.dispatch(
-          `boardStore/${BoardActions.GET_BOARD_INFO}`,
-          route.params.uuid
-        );
-      } catch {
-        toast.error(ToastMessages.GLOBAL_ERROR);
-      } finally {
-        isBoardInfoLoading.value = false;
-      }
-    };
-    const getColumnList = async () => {
-      try {
-        await store.dispatch(
-          `columnStore/${ColumnActions.GET_COLUMN_LIST}`,
-          route.params.uuid
-        );
-      } catch {
-        toast.error(ToastMessages.GLOBAL_ERROR);
-      } finally {
-        isColumnListLoading.value = false;
-      }
-    };
-    const addColumn = async () => {
-      try {
-        await store.dispatch(
-          `columnStore/${ColumnActions.ADD_COLUMN}`,
-          route.params.uuid
-        );
-      } catch {
-        toast.error(ToastMessages.GLOBAL_ERROR);
-      }
-    };
+    const { isBoardInfoLoading, getBoardInfo } = useBoard();
+    const { isColumnListLoading, getColumnList, addColumn } = useColumn();
     getBoardInfo();
     getColumnList();
     return {

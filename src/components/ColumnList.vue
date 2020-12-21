@@ -17,11 +17,10 @@ export default defineComponent({
   components: { Column },
   setup() {
     const store = useStore();
-    const columnList = computed(
-      () => store.getters[`columnStore/${ColumnGetters.COLUMN_LIST}`]
-    );
     return {
-      columnList
+      columnList: computed(
+        () => store.getters[`columnStore/${ColumnGetters.COLUMN_LIST}`]
+      )
     };
   }
 });
