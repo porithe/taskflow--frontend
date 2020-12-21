@@ -4,7 +4,8 @@ export interface Board {
 }
 
 export enum BoardGetters {
-  BOARD_LIST = "BOARD_LIST"
+  BOARD_LIST = "BOARD_LIST",
+  BOARD_NAME = "BOARD_NAME"
 }
 
 export enum BoardActions {
