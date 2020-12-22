@@ -5,7 +5,7 @@
       <BoardName />
       <div class="flex mt-3 justify-between flex-1 overflow-x-auto">
         <ColumnList />
-        <button class="self-start" @click="addColumn">
+        <button class="self-start focus:outline-none" @click="addColumn">
           <IconPlus />
         </button>
       </div>
