@@ -5,6 +5,8 @@
     viewBox="0 0 54 54"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    class="outline-none"
+    :class="customClasses"
   >
     <g id="24 / basic / plus">
       <path
@@ -20,6 +22,12 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 export default defineComponent({
-  name: "IconPlus"
+  name: "IconPlus",
+  props: {
+    customClasses: {
+      type: String,
+      default: ""
+    }
+  }
 });
 </script>

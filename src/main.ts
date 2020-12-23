@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import Toast, { PluginOptions, POSITION } from "vue-toastification";
+import VueClickAway from "vue3-click-away";
 import "./index.scss";
 import "vue-toastification/dist/index.css";
 
@@ -16,4 +17,5 @@ createApp(App)
   .use(store)
   .use(router)
   .use(Toast, options)
+  .use(VueClickAway)
   .mount("#app");
