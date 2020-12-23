@@ -1,7 +1,7 @@
 <template>
   <input
     v-model="name"
-    class="text-gray-50 py-0.5 font-semibold text-2xl bg-transparent flex-grow border-b-2 border-transparent outline-none focus:border-yellow-400 transition-colors"
+    class="text-gray-50 py-0.5 font-semibold text-xl bg-transparent flex-grow border-b-2 border-transparent outline-none focus:border-yellow-400 transition-colors"
     :class="{ 'border-red-500': isValidationError }"
   />
 </template>

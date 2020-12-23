@@ -5,7 +5,14 @@ module.exports = {
     fontFamily: {
       sans: ["Quicksand"]
     },
-    extend: {}
+    extend: {
+      width: {
+        "140": "48rem"
+      },
+      height: {
+        "128": "38rem"
+      }
+    }
   },
   variants: {
     extend: {}

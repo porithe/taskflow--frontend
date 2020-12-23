@@ -34,16 +34,16 @@ body,
 html {
   width: 100%;
   height: 100%;
-}
-#app {
-  width: 100%;
-  height: 100%;
-  @apply flex flex-col bg-gray-800;
   @media (min-width: 1px) and (max-width: 1024px) {
     &::after {
       @apply absolute inset-0 flex justify-center items-center bg-gray-900 text-gray-50 text-2xl;
       content: "MIN RESOLUTION: 1025px";
     }
   }
+}
+#app {
+  width: 100%;
+  height: 100%;
+  @apply flex flex-col bg-gray-800;
 }
 </style>

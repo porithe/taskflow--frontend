@@ -5,10 +5,13 @@
     <p class="mb-2 text-gray-50 font-medium font-base">No tasks yet</p>
     <button class="text-yellow-400 font-base font-medium">Add one</button>
   </div>
+  <AddTaskModal />
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
+import AddTaskModal from "@/components/AddTaskModal.vue";
 export default defineComponent({
-  name: "NoTasks"
+  name: "NoTasks",
+  components: { AddTaskModal }
 });
 </script>
