@@ -4,6 +4,7 @@ import {
   RenameColumn
 } from "@/constants/column";
 import columnApi from "@/api/column";
+import taskApi from "@/api/task";
 import { ActionContext } from "vuex";
 import { State } from "@/store/board/module";
 
@@ -40,6 +41,16 @@ export default {
     commit(ColumnMutations.EDIT_COLUMN_NAME, {
       columnUuid: data.uuid,
       name: data.name
+    });
+  },
+  async [ColumnActions.ADD_TASK](
+    { commit, rootState }: ActionContext<State, any>,
+    payload: any
+  ) {
+    const { data } = await taskApi.addTask(rootState.authStore.token, payload);
+    commit(ColumnMutations.ADD_TASK, {
+      columnUuid: data.columnUuid,
+      task: data
     });
   }
 };

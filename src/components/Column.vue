@@ -8,9 +8,13 @@
       <button class="ml-auto"><IconPlusSmall /></button>
       <button class="ml-2"><IconDots /></button>
     </div>
-    <NoTasks v-if="!columnData.tasks.length" />
+    <NoTasks v-if="!columnData.tasks.length" :column-uuid="columnData.uuid" />
     <ul v-else>
-      <Task />
+      <Task
+        v-for="task in columnData.tasks"
+        :task-data="task"
+        :key="task.uuid"
+      />
     </ul>
   </li>
 </template>

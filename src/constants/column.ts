@@ -14,7 +14,8 @@ export interface Column {
 export enum ColumnMutations {
   SET_COLUMN_LIST = "SET_COLUMN_LIST",
   ADD_COLUMN = "ADD_COLUMN",
-  EDIT_COLUMN_NAME = "EDIT_COLUMN_NAME"
+  EDIT_COLUMN_NAME = "EDIT_COLUMN_NAME",
+  ADD_TASK = "ADD_TASK"
 }
 
 export enum ColumnGetters {
@@ -24,7 +25,8 @@ export enum ColumnGetters {
 export enum ColumnActions {
   GET_COLUMN_LIST = "GET_COLUMN_LIST",
   ADD_COLUMN = "ADD_COLUMN",
-  EDIT_COLUMN_NAME = "EDIT_COLUMN_NAME"
+  EDIT_COLUMN_NAME = "EDIT_COLUMN_NAME",
+  ADD_TASK = "ADD_TASK"
 }
 
 export interface RenameColumn {

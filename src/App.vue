@@ -4,23 +4,29 @@
     <SideBar v-else />
     <router-view />
   </div>
+  <AddTaskModal v-if="isAddTaskModalOpen" />
 </template>
 <script lang="ts">
 import { defineComponent, computed } from "vue";
 import NavBar from "@/components/NavBar.vue";
 import SideBar from "@/components/SideBar.vue";
+import AddTaskModal from "@/components/AddTaskModal.vue";
 import { useStore } from "vuex";
 import { AuthGetters } from "@/constants/auth";
+import { TaskGetters } from "@/constants/task";
 
 export default defineComponent({
   name: "App",
-  components: { NavBar, SideBar },
+  components: { NavBar, SideBar, AddTaskModal },
   setup() {
     const store = useStore();
     const isUserLogged = computed(
       () => store.getters[`authStore/${AuthGetters.TOKEN}`]
     );
-    return { isUserLogged };
+    const isAddTaskModalOpen = computed(
+      () => store.getters[`taskStore/${TaskGetters.IS_MODAL_OPEN}`]
+    );
+    return { isUserLogged, isAddTaskModalOpen };
   }
 });
 </script>

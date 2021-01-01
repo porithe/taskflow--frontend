@@ -1,5 +1,6 @@
 import { Column, ColumnMutations } from "@/constants/column";
 import { State } from "@/store/column/module";
+import { PushTask } from "@/constants/task";
 
 interface RenamePayload {
   columnUuid: string;
@@ -19,5 +20,9 @@ export default {
   ) {
     const column = state.columnList.find(({ uuid }) => uuid === columnUuid);
     Object.assign(column, name);
+  },
+  [ColumnMutations.ADD_TASK](state: State, { task, columnUuid }: PushTask) {
+    const column = state.columnList.find(({ uuid }) => uuid === columnUuid);
+    column?.tasks.push(task);
   }
 };
