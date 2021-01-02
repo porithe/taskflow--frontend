@@ -23,7 +23,7 @@
       }}</label>
       <p class="form-error">{{ errors[formSettings[input].name] }}</p>
     </div>
-    <button class="form-submit">register</button>
+    <Button text="register" />
   </Form>
 </template>
 <script lang="ts">
@@ -36,10 +36,11 @@ import authApi from "@/api/auth";
 import ToastMessages from "@/constants/toastMessages";
 import { useRouter } from "vue-router";
 import Routes from "@/constants/routes";
+import Button from "@/components/Button.vue";
 
 export default defineComponent({
   name: "RegisterForm",
-  components: { Form, Field },
+  components: { Form, Field, Button },
   setup() {
     const { form, formSettings, schema } = useRegisterForm();
     const toast = useToast();

@@ -1,10 +1,11 @@
 <template>
-  <button
-    class="bg-yellow-400 px-12 py-4 text-xl tracking-wide font-medium absolute top-8 right-8"
+  <Button
+    text="create board"
     @click="addBoard"
-  >
-    create board
-  </button>
+    custom-classes="tracking-wide font-medium absolute top-8 right-8"
+    padding-classes="px-12 py-4"
+    font-size-class="text-xl"
+  />
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
@@ -12,8 +13,10 @@ import { useStore } from "vuex";
 import { BoardActions } from "@/constants/board";
 import { useToast } from "vue-toastification";
 import ToastMessages from "@/constants/toastMessages";
+import Button from "@/components/Button.vue";
 export default defineComponent({
   name: "CreateBoard",
+  components: { Button },
   setup() {
     const store = useStore();
     const toast = useToast();

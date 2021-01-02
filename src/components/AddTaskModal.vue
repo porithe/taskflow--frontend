@@ -13,7 +13,7 @@
         </button>
         <Form
           class="form"
-          @submit="addTask"
+          @submit="submit"
           :validation-schema="schema"
           v-slot="{ errors }"
         >
@@ -43,7 +43,7 @@
             </label>
             <p class="form-error">{{ errors.taskDescription }}</p>
           </div>
-          <button class="form-submit">add task</button>
+          <Button text="add task" />
         </Form>
       </div>
     </div>
@@ -52,27 +52,24 @@
 <script lang="ts">
 import { defineComponent, reactive, toRefs } from "vue";
 import IconPlus from "@/assets/svg/IconPlus.vue";
+import Button from "@/components/Button.vue";
 import { Form, Field } from "vee-validate";
 import * as Yup from "yup";
-import { useToast } from "vue-toastification";
-import { useStore } from "vuex";
-import { useRoute } from "vue-router";
-import ToastMessages from "@/constants/toastMessages";
-import { ColumnActions } from "@/constants/column";
-import { TaskGetters } from "@/constants/task";
 import useAddTaskModal from "@/hooks/useAddTaskModal";
+import useTask from "@/hooks/useTask";
 export default defineComponent({
   name: "AddTaskModal",
-  components: { IconPlus, Form, Field },
+  components: { IconPlus, Form, Field, Button },
   setup() {
-    const toast = useToast();
-    const store = useStore();
-    const route = useRoute();
+    const { addTask } = useTask();
     const { closeModal } = useAddTaskModal();
     const state = reactive({
       taskTitle: "",
       taskDescription: ""
     });
+    const submit = async () => {
+      await addTask(state.taskTitle, state.taskDescription, closeModal);
+    };
     const schema = Yup.object().shape({
       taskTitle: Yup.string()
         .min(3, "Task title must be at least 3 characters")
@@ -81,25 +78,11 @@ export default defineComponent({
         .min(6, "Task description must be at least 6 characters")
         .required("Task description is required")
     });
-    const addTask = async () => {
-      try {
-        const taskData = {
-          title: state.taskTitle,
-          description: state.taskDescription,
-          boardUuid: route.params.uuid,
-          columnUuid: store.getters[`taskStore/${TaskGetters.COLUMN_UUID}`]
-        };
-        await store.dispatch(`columnStore/${ColumnActions.ADD_TASK}`, taskData);
-        await closeModal();
-      } catch {
-        toast.error(ToastMessages.GLOBAL_ERROR);
-      }
-    };
     return {
       ...toRefs(state),
       closeModal,
       schema,
-      addTask
+      submit
     };
   }
 });

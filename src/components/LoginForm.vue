@@ -23,7 +23,7 @@
       }}</label>
       <p class="form-error">{{ errors[formSettings[input].name] }}</p>
     </div>
-    <button class="form-submit">login</button>
+    <Button text="login" />
   </Form>
 </template>
 <script lang="ts">
@@ -38,10 +38,11 @@ import { useRouter } from "vue-router";
 import Routes from "@/constants/routes";
 import { useStore } from "vuex";
 import { AuthActions } from "@/constants/auth";
+import Button from "@/components/Button.vue";
 
 export default defineComponent({
   name: "LoginForm",
-  components: { Form, Field },
+  components: { Form, Field, Button },
   setup() {
     const { form, formSettings, schema } = useLoginForm();
     const toast = useToast();

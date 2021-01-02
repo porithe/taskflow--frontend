@@ -1,5 +1,5 @@
 <template>
-  <li class="w-96 bg-gray-700 h-32 shadow-xl py-2 px-3 relative">
+  <li class="w-96 bg-gray-700 h-32 shadow-xl py-2 px-3 relative mb-5">
     <p class="text-gray-300 text-lg font-medium">{{ taskData.title }}</p>
     <p
       class="text-gray-400 text-base overflow-ellipsis whitespace-nowrap overflow-hidden"

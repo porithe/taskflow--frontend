@@ -38,7 +38,4 @@
   &-error {
     @apply text-red-500 text-sm font-medium text-right pt-1;
   }
-  &-submit {
-    @apply ml-auto py-2.5 px-6 bg-yellow-400 text-base focus:outline-none;
-  }
 }
