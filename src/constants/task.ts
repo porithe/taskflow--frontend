@@ -24,6 +24,11 @@ export interface PushTask {
   columnUuid: string;
 }
 
+export interface DeleteTask {
+  taskUuid: string;
+  boardUuid: string;
+}
+
 export enum TaskMutations {
   SET_IS_MODAL_OPEN = "SET_IS_MODAL_OPEN",
   SET_COLUMN_UUID = "SET_COLUMN_UUID"

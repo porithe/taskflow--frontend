@@ -29,7 +29,17 @@ const useTask = () => {
       toast.error(ToastMessages.GLOBAL_ERROR);
     }
   };
-  return { addTask };
+  const deleteTask = async (taskUuid: string) => {
+    try {
+      await store.dispatch(`columnStore/${ColumnActions.DELETE_TASK}`, {
+        taskUuid,
+        boardUuid: route.params.uuid
+      });
+    } catch {
+      toast.error(ToastMessages.GLOBAL_ERROR);
+    }
+  };
+  return { addTask, deleteTask };
 };
 
 export default useTask;

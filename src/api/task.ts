@@ -1,5 +1,5 @@
 import axios from "axios";
-import { AddTask } from "@/constants/task";
+import { AddTask, DeleteTask } from "@/constants/task";
 import bearerToken from "@/utils/token";
 
 export default {
@@ -21,5 +21,16 @@ export default {
         }
       }
     );
+  },
+  deleteTask(token: string, { boardUuid, taskUuid }: DeleteTask) {
+    return axios.delete(`${process.env.VUE_APP_API}task/delete`, {
+      data: {
+        boardUuid,
+        taskUuid
+      },
+      headers: {
+        Authorization: bearerToken(token)
+      }
+    });
   }
 };

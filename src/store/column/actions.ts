@@ -8,6 +8,7 @@ import columnApi from "@/api/column";
 import taskApi from "@/api/task";
 import { ActionContext } from "vuex";
 import { State } from "@/store/board/module";
+import { AddTask, DeleteTask } from "@/constants/task";
 
 export default {
   async [ColumnActions.GET_COLUMN_LIST](
@@ -46,7 +47,7 @@ export default {
   },
   async [ColumnActions.ADD_TASK](
     { commit, rootState }: ActionContext<State, any>,
-    payload: any
+    payload: AddTask
   ) {
     const { data } = await taskApi.addTask(rootState.authStore.token, payload);
     commit(ColumnMutations.ADD_TASK, {
@@ -63,5 +64,18 @@ export default {
       payload
     );
     commit(ColumnMutations.DELETE_COLUMN, data.uuid);
+  },
+  async [ColumnActions.DELETE_TASK](
+    { commit, rootState }: ActionContext<State, any>,
+    payload: DeleteTask
+  ) {
+    const { data } = await taskApi.deleteTask(
+      rootState.authStore.token,
+      payload
+    );
+    commit(ColumnMutations.DELETE_TASK, {
+      taskUuid: data.uuid,
+      columnUuid: data.columnUuid
+    });
   }
 };

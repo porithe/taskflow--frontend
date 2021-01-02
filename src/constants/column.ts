@@ -16,7 +16,8 @@ export enum ColumnMutations {
   ADD_COLUMN = "ADD_COLUMN",
   EDIT_COLUMN_NAME = "EDIT_COLUMN_NAME",
   DELETE_COLUMN = "DELETE_COLUMN",
-  ADD_TASK = "ADD_TASK"
+  ADD_TASK = "ADD_TASK",
+  DELETE_TASK = "DELETE_TASK"
 }
 
 export enum ColumnGetters {
@@ -28,7 +29,8 @@ export enum ColumnActions {
   ADD_COLUMN = "ADD_COLUMN",
   EDIT_COLUMN_NAME = "EDIT_COLUMN_NAME",
   ADD_TASK = "ADD_TASK",
-  DELETE_COLUMN = "DELETE_COLUMN"
+  DELETE_COLUMN = "DELETE_COLUMN",
+  DELETE_TASK = "DELETE_TASK"
 }
 
 export interface RenameColumn {

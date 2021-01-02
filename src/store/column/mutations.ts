@@ -7,6 +7,11 @@ interface RenamePayload {
   name: string;
 }
 
+interface DeleteTaskPayload {
+  taskUuid: string;
+  columnUuid: string;
+}
+
 export default {
   [ColumnMutations.SET_COLUMN_LIST](state: State, columnList: Column[]) {
     state.columnList = columnList;
@@ -27,7 +32,16 @@ export default {
   },
   [ColumnMutations.DELETE_COLUMN](state: State, columnUuid: string) {
     state.columnList = state.columnList.filter(
-      column => column.uuid !== columnUuid
+      ({ uuid }) => uuid !== columnUuid
     );
+  },
+  [ColumnMutations.DELETE_TASK](
+    state: State,
+    { taskUuid, columnUuid }: DeleteTaskPayload
+  ) {
+    const column = state.columnList.find(({ uuid }) => uuid === columnUuid);
+    if (column) {
+      column.tasks = column.tasks.filter(({ uuid }) => uuid !== taskUuid);
+    }
   }
 };
