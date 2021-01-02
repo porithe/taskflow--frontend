@@ -24,7 +24,7 @@
   <DeleteModal v-if="isDeleteModalOpen" v-model:isOpen="isDeleteModalOpen">
     <template #delete-content>column</template>
     <template #delete-btn>
-      <Button text="delete" />
+      <Button text="delete" @click="deleteColumn(columnData.uuid)" />
     </template>
   </DeleteModal>
 </template>
@@ -38,6 +38,7 @@ import useAddTaskModal from "@/hooks/useAddTaskModal";
 import DeleteModal from "@/components/DeleteModal.vue";
 import Button from "@/components/Button.vue";
 import useDeleteModal from "@/hooks/useDeleteModal";
+import useColumn from "@/hooks/useColumn";
 export default defineComponent({
   name: "Column",
   props: {
@@ -50,7 +51,8 @@ export default defineComponent({
   setup() {
     const { openModal } = useAddTaskModal();
     const { isDeleteModalOpen, openDeleteModal } = useDeleteModal();
-    return { openModal, isDeleteModalOpen, openDeleteModal };
+    const { deleteColumn } = useColumn();
+    return { openModal, isDeleteModalOpen, openDeleteModal, deleteColumn };
   }
 });
 </script>

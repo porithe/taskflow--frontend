@@ -1,6 +1,7 @@
 import {
   ColumnActions,
   ColumnMutations,
+  DeleteColumn,
   RenameColumn
 } from "@/constants/column";
 import columnApi from "@/api/column";
@@ -52,5 +53,15 @@ export default {
       columnUuid: data.columnUuid,
       task: data
     });
+  },
+  async [ColumnActions.DELETE_COLUMN](
+    { commit, rootState }: ActionContext<State, any>,
+    payload: DeleteColumn
+  ) {
+    const { data } = await columnApi.deleteColumn(
+      rootState.authStore.token,
+      payload
+    );
+    commit(ColumnMutations.DELETE_COLUMN, data.uuid);
   }
 };

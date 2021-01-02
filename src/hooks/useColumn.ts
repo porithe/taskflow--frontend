@@ -32,10 +32,21 @@ const useColumn = () => {
       toast.error(ToastMessages.GLOBAL_ERROR);
     }
   };
+  const deleteColumn = async (columnUuid: string) => {
+    try {
+      await store.dispatch(`columnStore/${ColumnActions.DELETE_COLUMN}`, {
+        boardUuid: route.params.uuid,
+        columnUuid
+      });
+    } catch {
+      toast.error(ToastMessages.GLOBAL_ERROR);
+    }
+  };
   return {
     isColumnListLoading,
     getColumnList,
-    addColumn
+    addColumn,
+    deleteColumn
   };
 };
 

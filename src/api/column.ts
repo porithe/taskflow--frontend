@@ -1,6 +1,6 @@
 import axios from "axios";
 import bearerToken from "@/utils/token";
-import { RenameColumn } from "@/constants/column";
+import { DeleteColumn, RenameColumn } from "@/constants/column";
 
 export default {
   getColumnList(token: string, boardUuid: string) {
@@ -41,5 +41,16 @@ export default {
         }
       }
     );
+  },
+  deleteColumn(token: string, { boardUuid, columnUuid }: DeleteColumn) {
+    return axios.delete(`${process.env.VUE_APP_API}column/delete`, {
+      data: {
+        boardUuid,
+        columnUuid
+      },
+      headers: {
+        Authorization: bearerToken(token)
+      }
+    });
   }
 };

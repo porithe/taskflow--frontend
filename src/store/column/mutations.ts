@@ -24,5 +24,10 @@ export default {
   [ColumnMutations.ADD_TASK](state: State, { task, columnUuid }: PushTask) {
     const column = state.columnList.find(({ uuid }) => uuid === columnUuid);
     column?.tasks.push(task);
+  },
+  [ColumnMutations.DELETE_COLUMN](state: State, columnUuid: string) {
+    state.columnList = state.columnList.filter(
+      column => column.uuid !== columnUuid
+    );
   }
 };
