@@ -1,29 +1,9 @@
 # taskflow--frontend
 
-## Project setup
-```
-npm install
-```
+## How to run (development-mode) ?
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+`npm install`
 
-### Compiles and minifies for production
-```
-npm run build
-```
+then
 
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+`npm run serve`

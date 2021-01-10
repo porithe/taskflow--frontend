@@ -29,6 +29,24 @@ export interface DeleteTask {
   boardUuid: string;
 }
 
+export interface MoveTaskToColumn {
+  boardUuid: string;
+  taskUuid: string;
+  columnUuid: string;
+  newPosition: number;
+  oldPosition: number;
+  currentColumnUuid: string;
+}
+
+export interface ChangeTaskPosition {
+  boardUuid: string;
+  taskUuid: string;
+  columnUuid: string;
+  newPosition: number;
+  currentColumnUuid: string;
+  oldPosition: number;
+}
+
 export enum TaskMutations {
   SET_IS_MODAL_OPEN = "SET_IS_MODAL_OPEN",
   SET_COLUMN_UUID = "SET_COLUMN_UUID"

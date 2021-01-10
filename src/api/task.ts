@@ -1,5 +1,10 @@
 import axios from "axios";
-import { AddTask, DeleteTask } from "@/constants/task";
+import {
+  AddTask,
+  ChangeTaskPosition,
+  DeleteTask,
+  MoveTaskToColumn
+} from "@/constants/task";
 import bearerToken from "@/utils/token";
 
 export default {
@@ -32,5 +37,59 @@ export default {
         Authorization: bearerToken(token)
       }
     });
+  },
+  moveToColumn(
+    token: string,
+    {
+      boardUuid,
+      taskUuid,
+      columnUuid,
+      newPosition,
+      currentColumnUuid,
+      oldPosition
+    }: MoveTaskToColumn
+  ) {
+    return axios.post(
+      `${process.env.VUE_APP_API}task/updateRelation`,
+      {
+        boardUuid,
+        taskUuid,
+        columnUuid,
+        newPosition,
+        oldPosition,
+        currentColumnUuid
+      },
+      {
+        headers: {
+          Authorization: bearerToken(token)
+        }
+      }
+    );
+  },
+  changeTaskPosition(
+    token: string,
+    {
+      boardUuid,
+      taskUuid,
+      newPosition,
+      oldPosition,
+      columnUuid
+    }: ChangeTaskPosition
+  ) {
+    return axios.post(
+      `${process.env.VUE_APP_API}task/moveTask`,
+      {
+        boardUuid,
+        taskUuid,
+        newPosition,
+        oldPosition,
+        columnUuid
+      },
+      {
+        headers: {
+          Authorization: bearerToken(token)
+        }
+      }
+    );
   }
 };

@@ -8,7 +8,12 @@ import columnApi from "@/api/column";
 import taskApi from "@/api/task";
 import { ActionContext } from "vuex";
 import { State } from "@/store/board/module";
-import { AddTask, DeleteTask } from "@/constants/task";
+import {
+  AddTask,
+  ChangeTaskPosition,
+  DeleteTask,
+  MoveTaskToColumn
+} from "@/constants/task";
 
 export default {
   async [ColumnActions.GET_COLUMN_LIST](
@@ -77,5 +82,17 @@ export default {
       taskUuid: data.uuid,
       columnUuid: data.columnUuid
     });
+  },
+  async [ColumnActions.MOVE_TASK_TO_COLUMN](
+    { commit, rootState }: ActionContext<State, any>,
+    payload: MoveTaskToColumn
+  ) {
+    await taskApi.moveToColumn(rootState.authStore.token, payload);
+  },
+  async [ColumnActions.CHANGE_TASKS_POSITION](
+    { commit, rootState }: ActionContext<State, any>,
+    payload: ChangeTaskPosition
+  ) {
+    await taskApi.changeTaskPosition(rootState.authStore.token, payload);
   }
 };
