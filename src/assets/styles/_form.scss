@@ -1,0 +1,41 @@
+.form {
+  @apply flex flex-col;
+  &-input:focus ~ &-label,
+  &-input:not(:focus):valid ~ &-label {
+    @apply text-gray-50 bg-gray-800 px-2 -top-2.5 left-2.5 text-sm z-20;
+  }
+  &-textarea:focus ~ &-label,
+  &-textarea:not(:focus):valid ~ &-label {
+    @apply text-gray-50 bg-gray-800 px-2 -top-2.5 left-2.5 text-sm z-20;
+  }
+  &-group {
+    @apply relative mb-7 flex flex-col;
+  }
+  &-label {
+    @apply absolute top-3 left-4 tracking-wide
+    text-gray-600 cursor-text text-base transition-all duration-200 z-0;
+  }
+  &-input {
+    @apply w-72 h-12 relative text-base bg-transparent text-gray-50
+    border border-gray-50 px-4 focus:outline-none z-10;
+    &::placeholder {
+      @apply font-semibold text-gray-700;
+    }
+    &:focus ~ &::placeholder {
+      @apply absolute top-0 left-0;
+    }
+  }
+  &-textarea {
+    @apply w-full h-72 relative text-base bg-transparent text-gray-50
+    border border-gray-50 px-4 focus:outline-none z-10 resize-none pt-2.5;
+    &::placeholder {
+      @apply font-semibold text-gray-700;
+    }
+    &:focus ~ &::placeholder {
+      @apply absolute top-0 left-0;
+    }
+  }
+  &-error {
+    @apply text-red-500 text-sm font-medium text-right pt-1;
+  }
+}

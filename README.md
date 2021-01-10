@@ -1,29 +1,29 @@
 # taskflow--frontend
 
-## Project setup
-```
-npm install
-```
+## How to run (development-mode) ?
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+At first run the back-end service: https://github.com/porithe/taskflow--backend
 
-### Compiles and minifies for production
-```
-npm run build
-```
+`npm install`
 
-### Run your unit tests
-```
-npm run test:unit
-```
+then
 
-### Lints and fixes files
-```
-npm run lint
-```
+`npm run serve`
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## To improve
+
+    - Change task positions(back-end) 
+
+## Screenshots
+
+![Alt text](./screens/home.png "home screen")
+
+![Alt text](./screens/register.png "register screen")
+
+![Alt text](./screens/createboard.png "create board screen")
+
+![Alt text](./screens/boardcreated.png "board created screen")
+
+![Alt text](./screens/tasks.png "tasks screen")
+

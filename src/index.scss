@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.Vue-Toastification {
+  &__toast {
+    border-radius: 0 !important;
+    &-body {
+      font-family: "Quicksand" !important;
+    }
+    &--success {
+      background-color: #059669 !important;
+    }
+
+    &--error {
+      background-color: #EF4444 !important;
+    }
+  }
+  &__close-button {
+    outline: none !important;
+  }
+}
